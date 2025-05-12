@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
@@ -23,6 +22,18 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (!href) return;
+
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      setIsMobileMenuOpen(false); // Close mobile menu if open
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   const navItems = [
     { title: 'Home', href: '#home' },
@@ -38,7 +49,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-xl font-heading font-bold">
+            <a 
+              href="#home" 
+              className="text-xl font-heading font-bold"
+              onClick={scrollToSection}
+            >
               <span className="text-white">Ivan</span>
               <span className="text-portfolio-neon">.</span>
               <span className="text-portfolio-purple">dev</span>
@@ -52,6 +67,7 @@ const Navbar = () => {
                 key={item.title} 
                 href={item.href} 
                 className="text-sm text-gray-300 hover:text-portfolio-neon transition-colors"
+                onClick={scrollToSection}
               >
                 {item.title}
               </a>
@@ -82,7 +98,7 @@ const Navbar = () => {
                 key={item.title}
                 href={item.href}
                 className="block px-4 py-3 text-base text-gray-300 hover:text-portfolio-neon transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={scrollToSection}
               >
                 {item.title}
               </a>
