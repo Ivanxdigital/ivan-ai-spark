@@ -217,7 +217,7 @@ const HeroSection = () => {
 
             {/* Tech floating badges - replaced with Framer Motion animations */}
             <motion.div 
-              className="absolute top-10 -left-10 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              className="absolute top-10 left-0 sm:-left-10 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
               animate={{
                 y: [0, -10, 0],
                 x: [0, 5, 0],
@@ -236,7 +236,7 @@ const HeroSection = () => {
             </motion.div>
             
             <motion.div 
-              className="absolute bottom-12 -right-8 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              className="absolute bottom-12 right-0 sm:-right-8 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
               animate={{
                 y: [0, 12, 0],
                 x: [0, -3, 0],
@@ -256,7 +256,7 @@ const HeroSection = () => {
             </motion.div>
             
             <motion.div 
-              className="absolute top-1/2 right-0 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              className="absolute top-1/2 right-0 sm:right-0 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
               animate={{
                 y: [0, 8, 0],
                 x: [0, 4, 0],

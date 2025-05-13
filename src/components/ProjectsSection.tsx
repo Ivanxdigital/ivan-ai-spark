@@ -70,32 +70,48 @@ const ProjectsSection = () => {
           </p>
         </div>
         
-        <div className="flex justify-center space-x-2 mb-12">
+        <div className="max-w-lg mx-auto flex flex-wrap justify-center gap-3 mb-12 px-4">
           <Button 
+            key="filter-all"
             variant={filter === 'all' ? 'default' : 'outline'} 
-            onClick={() => setFilter('all')}
-            className={filter === 'all' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}
+            onClick={(e) => {
+              e.preventDefault();
+              setFilter('all');
+            }}
+            className={`text-xs sm:text-sm min-w-[80px] ${filter === 'all' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}`}
           >
-            All Projects
+            All
           </Button>
           <Button 
+            key="filter-website"
             variant={filter === 'website' ? 'default' : 'outline'} 
-            onClick={() => setFilter('website')}
-            className={filter === 'website' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}
+            onClick={(e) => {
+              e.preventDefault();
+              setFilter('website');
+            }}
+            className={`text-xs sm:text-sm min-w-[80px] ${filter === 'website' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}`}
           >
             Websites
           </Button>
           <Button 
+            key="filter-web-app"
             variant={filter === 'web-application' ? 'default' : 'outline'} 
-            onClick={() => setFilter('web-application')}
-            className={filter === 'web-application' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}
+            onClick={(e) => {
+              e.preventDefault();
+              setFilter('web-application');
+            }}
+            className={`text-xs sm:text-sm min-w-[80px] ${filter === 'web-application' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}`}
           >
             Web Apps
           </Button>
           <Button 
+            key="filter-ai-chatbot"
             variant={filter === 'ai-chatbot' ? 'default' : 'outline'} 
-            onClick={() => setFilter('ai-chatbot')}
-            className={filter === 'ai-chatbot' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}
+            onClick={(e) => {
+              e.preventDefault();
+              setFilter('ai-chatbot');
+            }}
+            className={`text-xs sm:text-sm min-w-[80px] ${filter === 'ai-chatbot' ? 'bg-portfolio-neon text-black' : 'border-gray-700 text-gray-400 hover:text-white'}`}
           >
             AI Chatbots
           </Button>
