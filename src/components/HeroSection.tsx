@@ -56,19 +56,25 @@ const HeroSection = () => {
   const headingText = "Crafting digital experiences with purpose";
   const headingWords = headingText.split(" ");
 
-  // Background animation variants
+  // Background animation variants - increased opacity values
   const gradientVariants = {
     neon: {
-      opacity: [0.05, 0.12, 0.05],
+      opacity: [0.1, 0.25, 0.1],
       scale: [1, 1.1, 1],
       x: [0, 20, 0],
       y: [0, -20, 0],
     },
     purple: {
-      opacity: [0.05, 0.15, 0.05],
+      opacity: [0.1, 0.3, 0.1],
       scale: [1, 1.15, 1],
       x: [0, -30, 0],
       y: [0, 20, 0],
+    },
+    blue: {
+      opacity: [0.1, 0.2, 0.1],
+      scale: [0.95, 1.05, 0.95],
+      x: [0, 10, 0],
+      y: [0, 10, 0],
     }
   };
 
@@ -81,22 +87,32 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16 pb-10">
-      {/* Animated background gradients */}
+    <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16 pb-10 bg-portfolio-dark">
+      {/* Animated background gradients - enhanced size, opacity and blur */}
       <motion.div
-        initial={{ opacity: 0.05 }}
+        initial={{ opacity: 0.1 }}
         animate={gradientVariants.neon}
         transition={gradientTransition}
-        className="absolute top-20 left-10 w-72 h-72 bg-portfolio-neon/10 rounded-full blur-[100px] -z-10"
+        className="absolute top-20 left-10 w-[500px] h-[500px] bg-portfolio-neon/20 rounded-full blur-[180px] z-0"
       />
       <motion.div
-        initial={{ opacity: 0.05 }}
+        initial={{ opacity: 0.1 }}
         animate={gradientVariants.purple}
         transition={{
           ...gradientTransition,
           delay: 0.5, // Offset animation to create interesting patterns
         }}
-        className="absolute bottom-10 right-10 w-80 h-80 bg-portfolio-purple/10 rounded-full blur-[100px] -z-10"
+        className="absolute bottom-10 right-10 w-[550px] h-[550px] bg-portfolio-purple/25 rounded-full blur-[180px] z-0"
+      />
+      {/* Added blue gradient for additional cosmic effect */}
+      <motion.div
+        initial={{ opacity: 0.1 }}
+        animate={gradientVariants.blue}
+        transition={{
+          ...gradientTransition,
+          delay: 1, // Further offset for layered effect
+        }}
+        className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[200px] z-0"
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -119,16 +135,17 @@ const HeroSection = () => {
                 variants={textContainer}
               >
                 {headingWords.map((word, i) => (
-                  <React.Fragment key={i}>
+                  <span key={i} className="inline-flex items-center">
                     <motion.span
                       variants={textItem}
-                      className={word === "purpose" ? "gradient-text" : ""}
-                      style={{ display: "inline-block" }}
+                      className={`inline-block ${word === "purpose" ? "gradient-text" : ""}`}
                     >
                       {word}
                     </motion.span>
-                    {i !== headingWords.length - 1 && <span> </span>}
-                  </React.Fragment>
+                    {i !== headingWords.length - 1 && (
+                      <span className="inline-block w-[0.3em]">&nbsp;</span>
+                    )}
+                  </span>
                 ))}
               </motion.h1>
               
