@@ -79,12 +79,15 @@ const AboutSection = () => {
               <h4 className="text-2xl font-bold">My Story</h4>
               <p className="text-gray-400">
                 I'm Ivan, a <span className="text-white">26-year-old web developer</span> from the Philippines with a 
-                passion for creating seamless digital experiences. With 5+ years in the industry, 
-                I specialize in building modern web applications and AI-powered solutions for local businesses.
+                passion for creating seamless digital experiences. With 2+ years mastering AI-driven development, 
+                I specialize in crafting modern web applications and AI-powered solutions that elevate local businesses to the digital forefront.
+              </p>
+              <p className="text-gray-400">
+                As an expert prompt engineer, I leverage cutting-edge AI tools to build sophisticated websites and applications that would traditionally require years of coding experience. This unique approach allows me to deliver premium-quality solutions with remarkable efficiency.
               </p>
               <p className="text-gray-400">
                 I thrive at the intersection of <span className="text-portfolio-neon">creativity</span> and <span className="text-portfolio-purple">functionality</span>, 
-                constantly seeking innovative ways to blend design and technology.
+                constantly seeking innovative ways to blend design and technology to solve your business challenges.
               </p>
             </motion.div>
             
@@ -118,6 +121,22 @@ const AboutSection = () => {
                   <span>Collaborative development process</span>
                 </li>
               </ul>
+              
+              <div className="mt-6 p-4 border border-gray-800 rounded-lg bg-gray-900/30">
+                <h5 className="text-lg font-medium text-portfolio-neon mb-3">My Development Philosophy</h5>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 bg-portfolio-neon rounded-full"></div>
+                  <p className="text-sm text-gray-400">Start with <span className="text-white">user needs</span>, not features</p>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 bg-portfolio-purple rounded-full"></div>
+                  <p className="text-sm text-gray-400">Build with <span className="text-white">future growth</span> in mind</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <p className="text-sm text-gray-400">Deliver <span className="text-white">business value</span> at every step</p>
+                </div>
+              </div>
             </motion.div>
             
             <motion.div 
