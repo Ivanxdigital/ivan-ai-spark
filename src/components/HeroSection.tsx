@@ -208,9 +208,18 @@ const HeroSection = () => {
           >
             <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-portfolio-purple/20 to-portfolio-neon/20 rounded-full p-1 animate-pulse-glow">
               <div className="w-full h-full rounded-full bg-portfolio-dark flex items-center justify-center overflow-hidden">
-                {/* Replace with actual photo */}
-                <div className="w-5/6 h-5/6 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                  <p className="text-9xl font-bold text-gray-800">I</p>
+                {/* Profile image with gradient background */}
+                <div className="w-5/6 h-5/6 rounded-full overflow-hidden relative">
+                  {/* Gradient background behind the image */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-portfolio-purple/40 to-portfolio-neon/40"></div>
+                  {/* Actual profile image */}
+                  <img 
+                    src="/ivan-cutout.png" 
+                    alt="Ivan's Profile" 
+                    className="w-full h-full object-cover object-center relative z-10"
+                  />
+                  {/* Additional glow effect around the image */}
+                  <div className="absolute -inset-1 bg-gradient-to-br from-portfolio-purple/30 to-portfolio-neon/30 blur-md z-0"></div>
                 </div>
               </div>
             </div>
