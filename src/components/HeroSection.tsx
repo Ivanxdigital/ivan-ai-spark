@@ -225,8 +225,8 @@ const HeroSection = () => {
             </div>
 
             {/* Tech floating badges - replaced with Framer Motion animations */}
-            <motion.div 
-              className="absolute top-10 left-0 sm:-left-10 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+            <motion.div
+              className="absolute top-[-10px] left-[-15px] sm:top-8 sm:left-[-60px] bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
               animate={{
                 y: [0, -10, 0],
                 x: [0, 5, 0],
@@ -243,9 +243,9 @@ const HeroSection = () => {
             >
               <p className="text-xs font-medium text-portfolio-neon">NextJS</p>
             </motion.div>
-            
-            <motion.div 
-              className="absolute bottom-12 right-0 sm:-right-8 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+
+            <motion.div
+              className="absolute bottom-[-10px] right-[-15px] sm:bottom-10 sm:right-[-60px] bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
               animate={{
                 y: [0, 12, 0],
                 x: [0, -3, 0],
@@ -263,9 +263,9 @@ const HeroSection = () => {
             >
               <p className="text-xs font-medium text-portfolio-purple">Supabase</p>
             </motion.div>
-            
-            <motion.div 
-              className="absolute top-1/2 right-0 sm:right-0 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+
+            <motion.div
+              className="absolute top-1/2 right-[-25px] sm:right-[-40px] -translate-y-1/2 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
               animate={{
                 y: [0, 8, 0],
                 x: [0, 4, 0],
@@ -282,6 +282,107 @@ const HeroSection = () => {
               }}
             >
               <p className="text-xs font-medium text-blue-400">AI</p>
+            </motion.div>
+
+            {/* New Badges */}
+            <motion.div
+              className="absolute top-[-10px] right-[-15px] sm:top-8 sm:right-[-60px] bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              animate={{
+                y: [0, -8, 5, 0],
+                x: [0, 6, -4, 0],
+                rotate: [0, -2.5, 1.5, 0],
+                scale: [1, 1.02, 0.98, 1]
+              }}
+              transition={{
+                duration: 6.5,
+                ease: "easeInOut",
+                times: [0, 0.3, 0.7, 1],
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: 0.2
+              }}
+            >
+              <p className="text-xs font-medium text-amber-400">Prompt Engineering</p>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-[-10px] left-[-15px] sm:bottom-10 sm:left-[-60px] bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              animate={{
+                y: [0, 10, -5, 0],
+                x: [0, -5, 3, 0],
+                rotate: [0, 1.8, -2.2, 0],
+                scale: [1, 0.96, 1.04, 1]
+              }}
+              transition={{
+                duration: 7.5,
+                ease: "easeInOut",
+                times: [0, 0.4, 0.6, 1],
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: 0.8
+              }}
+            >
+              <p className="text-xs font-medium text-blue-500">TypeScript</p>
+            </motion.div>
+
+            <motion.div
+              className="absolute top-[-30px] sm:top-[-40px] left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              animate={{
+                y: [0, -12, 0],
+                x: [0, 0, 0],
+                rotate: [0, 1, -1, 0],
+                scale: [1, 1.06, 0.94, 1]
+              }}
+              transition={{
+                duration: 5.5,
+                ease: "easeInOut",
+                times: [0, 0.5, 1],
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: 0.4
+              }}
+            >
+              <p className="text-xs font-medium text-teal-400">Tailwind</p>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-[-30px] sm:bottom-[-40px] left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              animate={{
+                y: [0, 15, -3, 0],
+                x: [0, 2, -2, 0],
+                rotate: [0, -2, 2.5, 0],
+                scale: [1, 0.95, 1.01, 1]
+              }}
+              transition={{
+                duration: 8,
+                ease: "easeInOut",
+                times: [0, 0.35, 0.75, 1],
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: 1.2
+              }}
+            >
+              <p className="text-xs font-medium text-rose-400">RAG</p>
+            </motion.div>
+
+            <motion.div
+              className="absolute top-1/2 left-[-25px] sm:left-[-40px] -translate-y-1/2 bg-black/60 backdrop-blur-sm p-3 rounded-lg border border-white/10 shadow-lg"
+              animate={{
+                y: [0, -6, 6, 0],
+                x: [0, 8, -8, 0],
+                rotate: [0, 3.5, -3, 0],
+                scale: [1, 1.04, 0.99, 1]
+              }}
+              transition={{
+                duration: 6.2,
+                ease: "easeInOut",
+                times: [0, 0.25, 0.7, 1],
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: 0.6
+              }}
+            >
+              <p className="text-xs font-medium text-gray-400">shadcn/ui</p>
             </motion.div>
           </motion.div>
         </div>
