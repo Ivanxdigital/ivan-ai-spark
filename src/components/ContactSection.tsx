@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,68 +19,116 @@ const ContactSection = () => {
     });
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemLeftVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 }
+    }
+  };
+
+  const itemRightVariants = {
+    hidden: { x: 20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 }
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 relative">
+    <motion.section
+      id="contact"
+      className="py-20 relative"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       {/* Background accent */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-portfolio-neon/5 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div variants={titleVariants} className="text-center mb-16">
           <h2 className="text-2xl font-medium text-portfolio-neon mb-2">Contact</h2>
           <h3 className="text-4xl md:text-5xl font-bold">Let's <span className="gradient-text">Connect</span></h3>
           <p className="text-gray-400 max-w-2xl mx-auto mt-6">
             Have a project in mind or want to learn more about my services? 
             I'd love to hear from you. Let's discuss how we can work together.
           </p>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="bg-gray-900/50 border border-gray-800 overflow-hidden">
-            <CardContent className="p-6">
-              <h4 className="text-2xl font-bold mb-4">Send Me a Message</h4>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm text-gray-400">Name</label>
-                  <Input
-                    id="name"
-                    placeholder="Your Name"
-                    required
-                    className="bg-gray-800 border-gray-700 focus:border-portfolio-neon"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm text-gray-400">Email</label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    required
-                    className="bg-gray-800 border-gray-700 focus:border-portfolio-neon"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm text-gray-400">Message</label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell me about your project..."
-                    required
-                    className="bg-gray-800 border-gray-700 focus:border-portfolio-neon min-h-[150px]"
-                  />
-                </div>
-                
-                <Button 
-                  type="submit"
-                  className="w-full bg-portfolio-neon text-black hover:bg-portfolio-neon/90 button-glow"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <motion.div variants={itemLeftVariants}>
+            <Card className="bg-gray-900/50 border border-gray-800 overflow-hidden">
+              <CardContent className="p-6">
+                <h4 className="text-2xl font-bold mb-4">Send Me a Message</h4>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm text-gray-400">Name</label>
+                    <Input
+                      id="name"
+                      placeholder="Your Name"
+                      required
+                      className="bg-gray-800 border-gray-700 focus:border-portfolio-neon"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm text-gray-400">Email</label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      required
+                      className="bg-gray-800 border-gray-700 focus:border-portfolio-neon"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm text-gray-400">Message</label>
+                    <Textarea
+                      id="message"
+                      placeholder="Tell me about your project..."
+                      required
+                      className="bg-gray-800 border-gray-700 focus:border-portfolio-neon min-h-[150px]"
+                    />
+                  </div>
+                  
+                  <Button 
+                    type="submit"
+                    className="w-full bg-portfolio-neon text-black hover:bg-portfolio-neon/90 button-glow"
+                  >
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
           
-          <div className="space-y-8">
+          <motion.div variants={itemRightVariants} className="space-y-8">
             <div>
               <h4 className="text-2xl font-bold mb-4">Contact Information</h4>
               <p className="text-gray-400">
@@ -138,10 +186,10 @@ const ContactSection = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
